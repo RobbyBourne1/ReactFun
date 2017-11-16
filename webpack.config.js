@@ -1,27 +1,27 @@
 var HTMLWebpackPlugin = require('html-webpack-plugin');
 
 var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-    template: __dirname + 'ReactFun/index.html',
+    template: __dirname + 'app/index.html',
     filename: 'index.html',
     inject: 'body'
 });
 
 module.exports = {
-    entry: __dirname + '/Reactfun/index.js',
+    entry: __dirname + 'app/main.js',
     module: {
         loaders: [
             {
-                test: /\.jsx?$/,
+                test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets:['es2015']
+                    presets:['es2015', 'react']
                 }
             }
         ]
     },
     output: {
-        filename: 'main.js',
+        filename: 'transformed.js',
         path: __dirname + '/build'
     },
     plugins: [HTMLWebpackPluginConfig]
