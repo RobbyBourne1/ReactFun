@@ -11,24 +11,18 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+                query: {
+                    presets:['es2015']
+                }
             }
         ]
     },
     output: {
-        filename: 'transformed,js',
+        filename: 'main.js',
         path: __dirname + '/build'
     },
     plugins: [HTMLWebpackPluginConfig]
 }
-
-var React = require('react');
-var ReactDOM = require('react-dom');
-var App = require('.components/ReactFun');
-
-ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-);
