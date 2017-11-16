@@ -1,7 +1,14 @@
-var ReactDOM = require('react-dom');
-var React = require('react')
+import React from 'react'
+
+class App extends React.Component{
+    render(){
+        return (
+            <h1>Hello World</h1> 
+        )
+    }
+}
 
 React.render(
-    <h1>Hello World</h1>,
+    <App />,
     document.getElementById('app')
 );
